@@ -28,7 +28,13 @@ this gives us the opportuinty to leverage the signed memory range held by those 
 * mark the entire ghost driver range as rwx by directly manipulating ptes through iqvw64e.sys's read/write primitive (saving the original ptes in a vector) 
 * read the original ghost driver image
 * write our target driver over the ghost driver using a standard write primitive (no need for write to readonly...) 
-* to avoid rwx pages we unset the 'rw' bit from executable sections pages ptes , and set the 'nx' bit for others (see detection vectors section in readme)
+* to avoid rwx pages we unset the 'rw' bit from executable sections pages ptes , and set the 'nx' bit for others 
 * finally , we call the entry point of the mapped driver by patching  ZwAddAtom to jump to it , and calling NtAddAtom to trigger the syscall
 * when your driver is sone (sync this somehow...) call the RestoreOriginalDriver function to restore the original ghost driver image and ptes like we never patched it (currently it's' called after returning from DriverEntry since the example driver we map does nothing afterwards, oviously change that according to your needs )
 * cleaning of traces taken from kdmapper 
+
+# trivial detection vectors and things to consider 
+* whilst the mapped driver is active , the ghost driver's text section on disk differs from the one in memory
+* whilst the mapped driver is active , section's memory protections differ between disk and memory
+* saying that , the image path of dump drivers is not a valid path on disk , some anti cheats (and perhaps AVs) tend to skip them during integrity checks, some arent , check it for your specific use-case
+
