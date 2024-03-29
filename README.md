@@ -1,5 +1,6 @@
 ## GhostMapperUM
 manual map your unsigned driver over signed memory 
+
 inspired by the initial research and PoC (https://github.com/Oliver-1-1/GhostMapper) made by @Oliver-1-1 :) 
 
 since the original PoC intended to mainly demonstrate the concept , Oliver chose to use a driver to map another unsigned driver 
@@ -10,11 +11,13 @@ generally speaking , we do that by exploiting the iqvw64e.sys vulnerable intel d
 ## dump drivers 
 You should read the detailed readme description in the original GhostMapper repo , in short : 
 
-when a crush happens , some crush related data needs to be saved to disk. 
-drivers that need to save data to disk on a crush are cloned with the prefix of 
+when a crush happens ,  crush related data needs to be saved to disk. 
+drivers that need to save data to disk on a crush are cloned with the prefix of 'dump_' 
+
 the idea behind this is that on a crush , the system is in an unknwon state , a driver that needs to save data to disk might be the one that caused the crush...
-to solve that , the kernel asks the clones to step in and write the data in case of a crush. 
-by design , after initialization , dump drivers are kept in a suspended state (to minimize the chance they will be corrupted in case of a crush) 
+to solve that , the kernel asks the clones to step in and write the data instead 
+
+and that's why , by design , after initialization , dump drivers are kept in a suspended state and are not in use (to minimize the chance they will be corrupted in case of a crush) 
 
 this gives us the opportuinty to leverage the signed memory range held by those 'ghost' drivers and map our own driver over it !  
 
