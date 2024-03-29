@@ -33,7 +33,7 @@ this gives us the opportuinty to leverage the signed memory range held by those 
 * when your driver is sone (sync this somehow...) call the RestoreOriginalDriver function to restore the original ghost driver image and ptes like we never patched it (currently it's' called after returning from DriverEntry since the example driver we map does nothing afterwards, oviously change that according to your needs )
 * cleaning of traces taken from kdmapper 
 
-# trivial detection vectors and things to consider 
+## trivial detection vectors and things to consider 
 * whilst the mapped driver is active , the ghost driver's text section on disk differs from the one in memory
 * whilst the mapped driver is active , section's memory protections differ between disk and memory
 * saying that , the image path of dump drivers is not a valid path on disk , some anti cheats (and perhaps AVs) tend to skip them during integrity checks, some arent , check it for your specific use-case
