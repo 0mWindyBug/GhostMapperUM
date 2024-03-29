@@ -8,6 +8,13 @@ GhostMapperUM intends to provide a more realistic / "ready to use" version of Gh
 
 generally speaking , we do that by exploiting the iqvw64e.sys vulnerable intel driver (thanks to kdmapper's utilities - https://github.com/TheCruZ/kdmapper) 
 
+## Usage 
+set the path your your target driver in 'config.h' and compile 
+
+just run GhostMapperUM.exe 
+
+note your driver should not touch the DriverObject / RegistryPath entry args since we pass NULL there 
+
 ## dump drivers 
 You should read the detailed readme description in the original GhostMapper repo , in short : 
 
