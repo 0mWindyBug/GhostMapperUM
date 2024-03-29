@@ -1,0 +1,7 @@
+﻿  pte.cpp
+  Generating code
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+C:\Users\dorge\Downloads\GhostMapperUM\GhostMapperUM\GhostMapperUM\GhostMapperUM\restore.cpp(55): warning C4715: 'RestoreOriginalDriver': not all control paths return a value
+  All 726 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  GhostMapperUM.vcxproj -> C:\Users\dorge\Downloads\GhostMapperUM\GhostMapperUM\GhostMapperUM\x64\Release\GhostMapperUM.exe
