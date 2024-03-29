@@ -13,7 +13,7 @@ set the path your your target driver in 'config.h' and compile
 
 just run GhostMapperUM.exe 
 
-note your driver should not touch the DriverObject / RegistryPath entry args since we pass NULL there 
+note your driver should not touch the DriverObject / RegistryPath entry args as we pass them as null when calling the DriverEntry
 
 ## dump drivers 
 You should read the detailed readme description in the original GhostMapper repo , in short : 
