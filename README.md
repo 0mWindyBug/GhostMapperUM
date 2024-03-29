@@ -29,6 +29,6 @@ this gives us the opportuinty to leverage the signed memory range held by those 
 * read the original ghost driver image
 * write our target driver over the ghost driver using a standard write primitive (no need for write to readonly...) 
 * to avoid rwx pages we unset the 'rw' bit from executable sections pages ptes , and set the 'nx' bit for others (see detection vectors section in readme)
-* finally , we call the entry point of the mapped driver by patching the ZwAddAtom to jump to it , and calling NtAddAtom to trigger the syscall
+* finally , we call the entry point of the mapped driver by patching  ZwAddAtom to jump to it , and calling NtAddAtom to trigger the syscall
 * when your driver is sone (sync this somehow...) call the RestoreOriginalDriver function to restore the original ghost driver image and ptes like we never patched it (currently it's' called after returning from DriverEntry since the example driver we map does nothing afterwards, oviously change that according to your needs )
-* cleaning of traces taken from kdmapper (credits again!) 
+* cleaning of traces taken from kdmapper 
