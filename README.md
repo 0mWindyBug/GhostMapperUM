@@ -1,6 +1,6 @@
 ## GhostMapperUM
 manual map your unsigned driver over signed memory 
-inspired by the initial research and PoC(https://github.com/Oliver-1-1/GhostMapper) made by @Oliver-1-1 :) 
+inspired by the initial research and PoC (https://github.com/Oliver-1-1/GhostMapper) made by @Oliver-1-1 :) 
 
 since the original PoC intended to mainly demonstrate the concept , Oliver chose to use a driver to map another unsigned driver 
 GhostMapperUM intends to provide a more realistic / "ready to use" version of GhostMapper , implementing it entirely from usermode
