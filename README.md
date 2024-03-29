@@ -15,7 +15,7 @@ just run GhostMapperUM.exe
 
 note your driver should not touch the DriverObject / RegistryPath entry args as we pass them as null when calling the DriverEntry
 
-## dump drivers 
+## dump drivers tl;dr 
 You should read the detailed readme description in the original GhostMapper repo , in short : 
 
 when a crush happens ,  crush related data needs to be saved to disk. 
