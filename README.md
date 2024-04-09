@@ -29,8 +29,8 @@ and that's why , by design , after initialization , dump drivers are kept in a s
 this gives us the opportuinty to leverage the signed memory range held by those 'ghost' drivers and map our own driver over it !  
 
 ## the mapping procedure 
-* Read the specefied driver in 'config.h' from disk , that is the unsigned driver to map 
-* Find the base address of a ghost driver (we target dump_dumpfve.sys)
+* read the specefied driver in 'config.h' from disk , that is the unsigned driver to map 
+* Find the base address of a ghost driver (we target dump_stronvme.sys)
 * apply relocations to our local target driver image & fix imports
 * mark the entire ghost driver range as rwx by directly manipulating ptes through iqvw64e.sys's read/write primitive (saving the original ptes in a vector) 
 * read the original ghost driver image
