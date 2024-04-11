@@ -9,7 +9,7 @@ GhostMapperUM intends to provide a more realistic / "ready to use" version of Gh
 generally speaking , we do that by exploiting the iqvw64e.sys vulnerable intel driver (thanks to kdmapper's utilities - https://github.com/TheCruZ/kdmapper) 
 
 ## Usage 
-set the path your your target driver in 'config.h' and compile 
+set the path to your target driver in 'config.h' and compile 
 
 just run GhostMapperUM.exe 
 
@@ -18,15 +18,15 @@ note your driver should not touch the DriverObject / RegistryPath entry args as 
 ## dump drivers tl;dr 
 You should read the detailed readme description in the original GhostMapper repo , in short : 
 
-when a crush happens ,  crush related data needs to be saved to disk. 
-drivers that need to save data to disk on a crush are cloned with the prefix of 'dump_' 
+when a crash happens , crash related data needs to be saved to disk. 
+drivers responsible to save data to disk on a crush are cloned with the prefix of 'dump_' 
 
-the idea behind this is that on a crush , the system is in an unknwon state , a driver that needs to save data to disk might be the one that caused the crush...
+the idea behind this is that on a crash the system is is considered to be in an unknwon state , a driver responsible to save data to disk might be the one that caused the crash...
 to solve that , the kernel asks the clones to step in and write the data instead 
 
-and that's why , by design , after initialization , dump drivers are kept in a suspended state and are not in use (to minimize the chance they will be corrupted in case of a crush) 
+that's why - by design , after initialization dump drivers are kept in a suspended state and are not in use (to minimize the chance they will be corrupted by the time of a crash)
 
-this gives us the opportuinty to leverage the signed memory range held by those 'ghost' drivers and map our own driver over it !  
+this gives us the opportuinty to leverage the signed memory range held by those 'ghost' drivers and map our own driver over it  : ) 
 
 ## the mapping procedure 
 * read the specefied driver in 'config.h' from disk , that is the unsigned driver to map 
