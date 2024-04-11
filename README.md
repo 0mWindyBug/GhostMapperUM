@@ -19,7 +19,7 @@ note your driver should not touch the DriverObject / RegistryPath entry args as 
 You should read the detailed readme description in the original GhostMapper repo , in short : 
 
 when a crash happens , crash related data needs to be saved to disk. 
-drivers responsible to save data to disk on a crush are cloned with the prefix of 'dump_' 
+drivers responsible to save data to disk on a crash are cloned with the prefix of 'dump_' 
 
 the idea behind this is that on a crash the system is is considered to be in an unknwon state , a driver responsible to save data to disk might be the one that caused the crash...
 to solve that , the kernel asks the clones to step in and write the data instead 
